@@ -1,36 +1,30 @@
-import utilidades.Leer;
+
 public class Jefe extends Empleado{
 	private String departJefe;
 	private String titulUniv;
 	
-	public void setDepartJefe(){
-		System.out.print("\n\t\tDEPARTAMENTO DEL QUE ES JEFE? ");
-		departJefe=Leer.pedirCadena();
-		return;
+	public void setDepartJefe(String departJefe){		
+		this.departJefe=departJefe;
 	}
 	
-	public void setTitulUniv(){
-		System.out.print("\n\t\tTITULO UNIVERSITARIO? ");
-		titulUniv=Leer.pedirCadena();
-		return;
+	public void setTitulUniv(String titulUniv){
+		this.titulUniv=titulUniv;
 	}
 	
-	public void setTodo(){
-		super.setTodo();
-		setDepartJefe();
-		setTitulUniv();		
+	public void setTodo(String nombre,float sueldo, String departJefe, String titulUniv){
+		super.setTodo(nombre, sueldo);
+		setDepartJefe(departJefe);
+		setTitulUniv(titulUniv);		
 	}
 	
-	public void getDepartJefe(){
-		System.out.print("\n\t\tES JEFE DEL DEPARTAMENTO:  " + departJefe);
+	public String imprimeDepartJefe(){
+		return "\n\t\tES JEFE DEL DEPARTAMENTO:  " + departJefe;
 	}
-	public void getTitulUniv(){
-		System.out.print("\n\t\tTIENE COMO TITULO UNIVERSITARIO: " + titulUniv);
+	public String imprimeTitulUniv(){
+		return "\n\t\tTIENE COMO TITULO UNIVERSITARIO: " + titulUniv;
 	}
 	
-	public void getTodo(){
-		super.getTodo();
-		getDepartJefe();
-		getTitulUniv();
+	public String imprimeTodo(){
+		return super.imprimeTodo() + imprimeDepartJefe() + imprimeTitulUniv();
 	}
 }
